@@ -16,6 +16,9 @@ function printMyBooks(myArray)
   myArray.forEach(x => console.log(x));
 }
 
-booksID.forEach(
-  book => book.smallPhoto = "http://covers.openlibrary.org/b/olid/" + book[id] + "-S.jpg";
-);
+booksID.forEach(function(book)
+{
+    book.smallPhoto="http://covers.openlibrary.org/b/olid/" + book.id + "-S.jpg";
+    book.mediumPhoto="http://covers.openlibrary.org/b/olid/" + book.id + "-M.jpg";
+    book.largePhoto="http://covers.openlibrary.org/b/olid/" + book.id + "-L.jpg";
+});

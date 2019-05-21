@@ -1,3 +1,5 @@
+const featuredProduct = 3;//index of the featured product, change this to change the featured product
+
 var booksID =
 [
   {"olid": "OL24326648M"}, //frankenstein
@@ -16,7 +18,7 @@ function printMyBooks(myArray) //nice for debugging
   myArray.forEach(x => console.log(x));
 }
 
-var books = []; //asynchronicity >:(
+var books = []; //asynchronicity >:(              @TODO: kill async
 
 booksID.forEach(x =>
   {
@@ -38,3 +40,5 @@ booksID.forEach(x =>
     })
   }
 ); //this could've been done better, but it works so ¯\_(ツ)_/¯
+
+document.getElementById("featuredProductName").innerHTML = books[3].details.title;

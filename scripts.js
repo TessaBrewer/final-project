@@ -11,11 +11,30 @@ var booksID =
   {"olid": "OL24205740M"}, //The Dunwich Horror
 ]
 
-function printMyBooks(myArray)
+function printMyBooks(myArray) //nice for debugging
 {
   myArray.forEach(x => console.log(x));
 }
 
-var books = booksID.map(
-    x => x.push
-    (...$.curl'https://openlibrary.org/api/books?bibkeys=OLID:' + x.olid + '&jscmd=details&format=json'));
+var books = []; //asynchronicity >:(
+
+booksID.forEach(x =>
+  {
+    var urlToBeCalled = 'https://openlibrary.org/api/books?bibkeys=OLID:' + x.olid + '&jscmd=details&format=json';
+    $.ajax(
+    {
+      url: urlToBeCalled,
+      success: function(result)
+      {
+        books.push(result["OLID:" + x.olid]);
+        //console.log(result); //for debugging
+        //console.log(x); //for debugging
+      },
+      error: function(jqXHR, textStatus, errorThrow)
+      {
+        console.log(x.olid + " request failed");
+        console.log(jqXHR, textStatus, errorThrow, urlToBeCalled);
+      }
+    })
+  }
+); //this could've been done better, but it works so ¯\_(ツ)_/¯

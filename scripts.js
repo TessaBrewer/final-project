@@ -1,14 +1,14 @@
 var booksID =
 [
-  {"id": "OL24326648M"}, //frankenstein
-  {"id": "OL7120857M"}, //Dr.Jekyl and Mr.Hyde
-  {"id": "OL2550667M"}, //It
-  {"id": "OL24207120M"}, //Firestarter
-  {"id": "OL7033786M"}, //Edgar Allan Poe
-  {"id": "OL6552298M"}, //The Raven
-  {"id": "OL9831606M"}, //The Case of Charles Dexter Ward
-  {"id": "OL24372171M"}, // At the Mountains of Madness
-  {"id": "OL24205740M"} //The Dunwich Horror
+  {"olid": "OL24326648M"}, //frankenstein
+  {"olid": "OL7120857M"}, //Dr.Jekyl and Mr.Hyde
+  {"olid": "OL2550667M"}, //It
+  {"olid": "OL24207120M"}, //Firestarter
+  {"olid": "OL7033786M"}, //Edgar Allan Poe
+  {"olid": "OL6552298M"}, //The Raven
+  {"olid": "OL9831606M"}, //The Case of Charles Dexter Ward
+  {"olid": "OL24372171M"}, // At the Mountains of Madness
+  {"olid": "OL24205740M"}, //The Dunwich Horror
 ]
 
 function printMyBooks(myArray)
@@ -16,9 +16,6 @@ function printMyBooks(myArray)
   myArray.forEach(x => console.log(x));
 }
 
-booksID.forEach(function(book)
-{
-    book.smallPhoto="http://covers.openlibrary.org/b/olid/" + book.id + "-S.jpg";
-    book.mediumPhoto="http://covers.openlibrary.org/b/olid/" + book.id + "-M.jpg";
-    book.largePhoto="http://covers.openlibrary.org/b/olid/" + book.id + "-L.jpg";
-});
+var books = booksID.map(
+    x => x.push
+    (...$.curl'https://openlibrary.org/api/books?bibkeys=OLID:' + x.olid + '&jscmd=details&format=json'));

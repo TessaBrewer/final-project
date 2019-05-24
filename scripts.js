@@ -1,5 +1,9 @@
 const featuredProduct = 12;//index of the featured product, change this to change the featured product
-var fileName = location.href.split("/").slice(-1); 
+
+var fileName = location.href.split("/").slice(-1); //stores an array with 1 entry, the name of the current HTML document
+
+var currentProduct = sessionStorage.getItem("passedProductValue"); //should store the key # for the currently selected product (for use on the single product page)
+
 var booksID =
 [
   {"olid": "OL24326648M", price: 6}, //frankenstein
@@ -65,21 +69,35 @@ function goToSingleProduct()
   window.location.href = "../productPage/productPage.html";
 }
 
-function fillExampleProduct(x, y) //@params x: class name, y: product number
+function fillExampleProduct(x, y) //@params x: class name, y: product number //for use of the main page
 {
   document.getElementsByClassName(x)[0].innerHTML = 
   "<img src=" + "http://covers.openlibrary.org/b/olid/" + booksID[y].olid + "-M.jpg" + ">"
   + "<h2 class=\"clearText\">" + books[y].details.title + "</h2>"
   + "<h2 class=\"clearText\"> $" + booksID[y].price + "</h2>";
+  document.getElementsByClassName(x)[0].addEventListener("click", function()
+  {
+    sessionStorage.setItem("passedProductValue", y);
+    //debugger; //useful spot to check that data is being passed correctly
+    goToSingleProduct();
+  });
 }
 
-if(fileName[0] = "mainPage.html")
+if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff that populates the page)
 {
-document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;
-document.getElementsByClassName("featuredProductDescription")[0].innerHTML = "By " + books[featuredProduct].details.authors[0].name;
-document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", "http://covers.openlibrary.org/b/olid/" + booksID[featuredProduct].olid + "-M.jpg");
+  console.log("This should only run on the main page");
 
-fillExampleProduct("firstExampleProduct", 3);
-fillExampleProduct("secondExampleProduct", 7);
-fillExampleProduct("thirdExampleProduct", 9);
+  document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;
+  document.getElementsByClassName("featuredProductDescription")[0].innerHTML = "By " + books[featuredProduct].details.authors[0].name;
+  document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", "http://covers.openlibrary.org/b/olid/" + booksID[featuredProduct].olid + "-M.jpg");
+
+  fillExampleProduct("firstExampleProduct", 3);
+  fillExampleProduct("secondExampleProduct", 7);
+  fillExampleProduct("thirdExampleProduct", 9);
+
+  sessionStorage.setItem("passedProductValue", 0);
+}
+
+if(fileName[0] == "singleProductPage")
+{
 }

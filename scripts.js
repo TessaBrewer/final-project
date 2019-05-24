@@ -1,5 +1,5 @@
 const featuredProduct = 12;//index of the featured product, change this to change the featured product
-
+var fileName = location.href.split("/").slice(-1); 
 var booksID =
 [
   {"olid": "OL24326648M", price: 6}, //frankenstein
@@ -60,6 +60,11 @@ booksID.forEach(function(x)
 }
 ); //this could've been done better, but it works so ¯\_(ツ)_/¯
 
+function goToSingleProduct()
+{
+  window.location.href = "../productPage/productPage.html";
+}
+
 function fillExampleProduct(x, y) //@params x: class name, y: product number
 {
   document.getElementsByClassName(x)[0].innerHTML = 
@@ -68,6 +73,8 @@ function fillExampleProduct(x, y) //@params x: class name, y: product number
   + "<h2 class=\"clearText\"> $" + booksID[y].price + "</h2>";
 }
 
+if(fileName[0] = "mainPage.html")
+{
 document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;
 document.getElementsByClassName("featuredProductDescription")[0].innerHTML = "By " + books[featuredProduct].details.authors[0].name;
 document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", "http://covers.openlibrary.org/b/olid/" + booksID[featuredProduct].olid + "-M.jpg");
@@ -75,3 +82,4 @@ document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", "
 fillExampleProduct("firstExampleProduct", 3);
 fillExampleProduct("secondExampleProduct", 7);
 fillExampleProduct("thirdExampleProduct", 9);
+}

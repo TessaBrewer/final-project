@@ -90,6 +90,11 @@ if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff t
   document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;
   document.getElementsByClassName("featuredProductDescription")[0].innerHTML = "By " + books[featuredProduct].details.authors[0].name;
   document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", "http://covers.openlibrary.org/b/olid/" + booksID[featuredProduct].olid + "-M.jpg");
+  document.getElementsByClassName("learnMoreFeaturedProduct")[0].addEventListener("click", function()
+  {
+    sessionStorage.setItem("passedProductValue", featuredProduct);
+    goToSingleProduct();
+  });
 
   fillExampleProduct("firstExampleProduct", 3);
   fillExampleProduct("secondExampleProduct", 7);
@@ -98,6 +103,6 @@ if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff t
   sessionStorage.setItem("passedProductValue", 0);
 }
 
-if(fileName[0] == "singleProductPage")
+if(fileName[0] == "singleProductPage") //put singleProduct only code here (stuff that populates the single product page)
 {
 }

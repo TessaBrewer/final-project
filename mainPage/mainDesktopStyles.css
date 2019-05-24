@@ -36,24 +36,49 @@ body
   padding: 5px 20px;
 }
 
-@media only screen and (min-width: 600px)
+.head
+{
+  display: grid;
+}
+
+.menu
+{
+  display: flex;
+  align-items: center;
+}
+
+.exampleProducts
+{
+  display: grid;
+}
+
+.clearText
+{
+  margin: 0;
+}
+
+.exPro /*This centers the exampleProducts*/
+{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) /*Put stuff that is ONLY for the desktop page, put other stuff up there^*/
 {
   .head
   {
     padding-left: 5%;
     padding-right: 5%;
-    display: grid;
     grid-template-columns: 80%;
   }
   .menu
   {
-    display: flex;
-    align-items: center;
     grid-column: 2/3;
   }
   .exampleProducts
   {
-    display: grid;
     padding: 25px;
     grid-template-columns: 30% 30% 30%;
     grid-template-rows: 50px 350px 50px;
@@ -78,17 +103,6 @@ body
   {
     grid-column: 3/4;
     grid-row: 2/3;
-  }
-  .clearText
-  {
-    margin: 0;
-  }
-  .exPro
-  {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
   }
   .linkToProducts
   {

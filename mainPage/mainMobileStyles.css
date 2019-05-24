@@ -1,3 +1,61 @@
 @media only screen and (max-width: 600px)
 {
+    .head
+    {
+        grid-template-rows: 3em 2em;
+    }
+    .companyName
+    {
+        grid-row:1/2;
+        display: flex;
+        align-items: center;
+        margin-left: 5%;
+    }
+    .menu
+    {
+        grid-row: 2/3;
+        margin-left: 5%;
+    }
+    .exampleProducts
+    {
+        grid-template-rows: 50px 350px 350px 350px 50px;
+    }
+    .exampleProductsTitle
+    {
+        grid-row: 1/2;
+        margin: 1% 5%;
+    }
+    .firstExampleProduct
+    {
+        grid-row: 2/3;
+    }
+    .secondExampleProduct
+    {
+        grid-row: 3/4;
+    }
+    .thirdExampleProduct
+    {
+        grid-row: 4/5;
+    }
+    .linkToProducts
+    {
+        grid-row: 5/6;
+        margin-left: 5%;
+    }
+    .featuredProduct
+    {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 5%;
+    }
+    .footer
+    {
+        padding: 5%;
+        width: 100%;
+    }
+    .aboutSection
+    {
+        width: 90%;
+    }
 }

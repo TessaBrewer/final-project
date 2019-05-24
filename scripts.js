@@ -63,14 +63,14 @@ booksID.forEach(function(x)
 function fillExampleProduct(x, y) //@params x: class name, y: product number
 {
   document.getElementsByClassName(x)[0].innerHTML = 
-  "<img src=" + books[y].thumbnail_url + ">"
+  "<img src=" + "http://covers.openlibrary.org/b/olid/" + booksID[y].olid + "-M.jpg" + ">"
   + "<h2>" + books[y].details.title + "</h2>"
   + "<h2> $" + booksID[y].price + "</h2>";
 }
 
 document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;
 document.getElementsByClassName("featuredProductDescription")[0].innerHTML = "By " + books[featuredProduct].details.authors[0].name;
-document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", books[featuredProduct].thumbnail_url);
+document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", "http://covers.openlibrary.org/b/olid/" + booksID[featuredProduct].olid + "-M.jpg");
 
 fillExampleProduct("firstExampleProduct", 3);
 fillExampleProduct("secondExampleProduct", 7);

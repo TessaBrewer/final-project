@@ -66,7 +66,7 @@ booksID.forEach(function(x)
 
 function goToSingleProduct()
 {
-  window.location.href = "../productPage/productPage.html";
+  window.location.href = "../singleProductPage/singleProductPage.html";
 }
 
 function fillExampleProduct(x, y) //@params x: class name, y: product number //for use of the main page

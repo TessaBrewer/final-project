@@ -69,6 +69,37 @@ function goToSingleProduct() //always store the "passedProductValue" in sessionS
   window.location.href = "../singleProductPage/singleProductPage.html";
 }
 
+function goToHomePage()
+{
+  window.location.href = "../mainPage/mainPage.html";
+}
+
+function goToAllProducts()
+{
+  window.location.href = "../productPage/productPage.html";
+}
+
+document.getElementById("homeButton").addEventListener("click", function() //listener for the home button
+{
+  goToHomePage();
+});
+
+document.getElementById("productsButton").addEventListener("click", function() //listener for the product button
+{
+  goToAllProducts();
+});
+
+document.getElementById("shoppingCartButton").addEventListener("click", function() //listener for the shopping cart button
+{
+  if(currentProduct != null) //takes you to the last viewed product if there is one, if not then this goes to the all product page
+  {
+    goToSingleProduct();
+  }else
+  {
+    goToAllProducts();
+  }
+});
+
 function fillExampleProduct(x, y) //@params x: class name, y: product number //for use of the main page
 {
   document.getElementsByClassName(x)[0].innerHTML = 
@@ -100,7 +131,7 @@ if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff t
   fillExampleProduct("secondExampleProduct", 7);
   fillExampleProduct("thirdExampleProduct", 9);
 
-  sessionStorage.setItem("passedProductValue", 0);
+  //sessionStorage.setItem("passedProductValue", 0);
 }
 
 if(fileName[0] == "singleProductPage") //put singleProduct only code here (stuff that populates the single product page)

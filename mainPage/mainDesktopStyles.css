@@ -2,6 +2,7 @@ body
 {
   background-color: whitesmoke;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .featuredProduct
@@ -17,12 +18,88 @@ body
   padding: 1%;
 }
 
+.menuButton
+{
+  border: none;
+  margin: 5px;
+  font-size: 1.5em;
+  background-color: whitesmoke;
+}
+
+.learnMoreFeaturedProduct
+{
+  background-color: white;
+  font: black;
+  border: none;
+  font-size: 1.3em;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
 @media only screen and (min-width: 600px)
 {
+  .head
+  {
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: 80%;
+  }
+  .menu
+  {
+    display: flex;
+    align-items: center;
+    grid-column: 2/3;
+  }
+  .exampleProducts
+  {
+    display: grid;
+    padding: 25px;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 50px 350px 50px;
+  }
+  .exampleProductsTitle
+  {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 0;
+  }
+  .firstExampleProduct
+  {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .secondExampleProduct
+  {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .thirdExampleProduct
+  {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .clearText
+  {
+    margin: 0;
+  }
+  .exPro
+  {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  .linkToProducts
+  {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
   .featuredProduct
   {
     display: grid;
     grid-template-columns: 100px 200px auto;
+    padding: 25px;
   }
   .featuredProductImage
   {

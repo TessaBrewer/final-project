@@ -64,8 +64,8 @@ function fillExampleProduct(x, y) //@params x: class name, y: product number
 {
   document.getElementsByClassName(x)[0].innerHTML = 
   "<img src=" + "http://covers.openlibrary.org/b/olid/" + booksID[y].olid + "-M.jpg" + ">"
-  + "<h2>" + books[y].details.title + "</h2>"
-  + "<h2> $" + booksID[y].price + "</h2>";
+  + "<h2 class=\"clearText\">" + books[y].details.title + "</h2>"
+  + "<h2 class=\"clearText\"> $" + booksID[y].price + "</h2>";
 }
 
 document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;

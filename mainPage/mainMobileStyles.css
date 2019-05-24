@@ -1,21 +1,5 @@
 @media only screen and (max-width: 600px)
 {
-    .head
-    {
-        grid-template-rows: 3em 2em;
-    }
-    .companyName
-    {
-        grid-row:1/2;
-        display: flex;
-        align-items: center;
-        margin-left: 5%;
-    }
-    .menu
-    {
-        grid-row: 2/3;
-        margin-left: 5%;
-    }
     .exampleProducts
     {
         grid-template-rows: 50px 350px 350px 350px 50px;
@@ -48,14 +32,5 @@
         align-items: center;
         flex-direction: column;
         padding: 5%;
-    }
-    .footer
-    {
-        padding: 5%;
-        width: 100%;
-    }
-    .aboutSection
-    {
-        width: 90%;
     }
 }

@@ -64,7 +64,7 @@ booksID.forEach(function(x)
 }
 ); //this could've been done better, but it works so ¯\_(ツ)_/¯
 
-function goToSingleProduct()
+function goToSingleProduct() //always store the "passedProductValue" in sessionStorage before calling this
 {
   window.location.href = "../singleProductPage/singleProductPage.html";
 }

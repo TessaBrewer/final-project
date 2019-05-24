@@ -1,29 +1,7 @@
-body
-{
-  background-color: whitesmoke;
-  margin: 0;
-  overflow-x: hidden;
-}
-
 .featuredProduct
 {
   background-color: black;
   color: whitesmoke;
-}
-
-.footer
-{
-  background-color: grey;
-  width: 100%;
-  padding: 1%;
-}
-
-.menuButton
-{
-  border: none;
-  margin: 5px;
-  font-size: 1.5em;
-  background-color: whitesmoke;
 }
 
 .learnMoreFeaturedProduct
@@ -34,17 +12,6 @@ body
   font-size: 1.3em;
   border-radius: 5px;
   padding: 5px 20px;
-}
-
-.head
-{
-  display: grid;
-}
-
-.menu
-{
-  display: flex;
-  align-items: center;
 }
 
 .exampleProducts
@@ -67,16 +34,6 @@ body
 
 @media only screen and (min-width: 600px) /*Put stuff that is ONLY for the desktop page, put other stuff up there^*/
 {
-  .head
-  {
-    padding-left: 5%;
-    padding-right: 5%;
-    grid-template-columns: 80%;
-  }
-  .menu
-  {
-    grid-column: 2/3;
-  }
   .exampleProducts
   {
     padding: 25px;
@@ -122,20 +79,5 @@ body
   .featuredProductText
   {
     grid-column: 3/4;
-  }
-  .footer
-  {
-    display: grid;
-    grid-template-columns: [farLeft] 50% [mid] 50% [farRight];
-  }
-  .aboutSection
-  {
-    grid-column-start: [farLeft];
-    grid-column-end: [mid];
-  }
-  .contact
-  {
-    grid-column-start: [mid];
-    grid-column-end: [farRight];
   }
 }

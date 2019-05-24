@@ -1,0 +1,94 @@
+/*
+        THIS FILE IS ONLY FOR STUFF THAT STAYS THE SAME ACROSSED ALL PAGES
+*/
+
+body
+{
+  background-color: whitesmoke;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.head
+{
+  display: grid;
+}
+
+.menu
+{
+  display: flex;
+  align-items: center;
+}
+
+.menuButton
+{
+  border: none;
+  margin: 5px;
+  font-size: 1.5em;
+  background-color: whitesmoke;
+}
+
+.footer
+{
+  background-color: grey;
+  width: 100%;
+  padding: 1%;
+}
+
+@media only screen and (min-width: 600px) /*desktop styles*/
+{
+    .head
+    {
+      padding-left: 5%;
+      padding-right: 5%;
+      grid-template-columns: 80%;
+    }
+    .menu
+    {
+      grid-column: 2/3;
+    }
+    .footer
+    {
+      display: grid;
+      grid-template-columns: [farLeft] 50% [mid] 50% [farRight];
+    }
+    .aboutSection
+    {
+      grid-column-start: [farLeft];
+      grid-column-end: [mid];
+    }
+    .contact
+    {
+      grid-column-start: [mid];
+      grid-column-end: [farRight];
+    }
+}
+
+@media only screen and(max-width: 600px) /*mobile styles*/
+{
+    .head
+    {
+        grid-template-rows: 3em 2em;
+    }
+    .companyName
+    {
+        grid-row:1/2;
+        display: flex;
+        align-items: center;
+        margin-left: 5%;
+    }
+    .menu
+    {
+        grid-row: 2/3;
+        margin-left: 5%;
+    }
+    .footer
+    {
+        padding: 5%;
+        width: 100%;
+    }
+    .aboutSection
+    {
+        width: 90%;
+    }
+}

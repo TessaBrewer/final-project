@@ -1,3 +1,8 @@
+window.addEventListener('error', function(event) 
+{
+  console.log(event);
+});
+
 const featuredProduct = 12;//index of the featured product, change this to change the featured product
 
 var fileName = location.href.split("/").slice(-1); //stores an array with 1 entry, the name of the current HTML document
@@ -38,11 +43,14 @@ var booksID =
   {"olid": "OL5541887M", price: "6.25"}, //Das Kapital
   {"olid": "OL7056801M", price: "8.25"}, //Before Adam
   {"olid": "OL7110112M", price: "3.36"}, //weird satan poem
-
 ]
 
 var books = []; //asynchronicity >:(              @TODO: kill async
+var bookKeys = []; //holds the keys for the session memory
 
+function getData()
+{
+console.log("I had to visit the API :(");
 booksID.forEach(function(x)
 {
   {
@@ -53,6 +61,51 @@ booksID.forEach(function(x)
       success: function(result)
       {
         books.push(result["OLID:" + x.olid]);
+        bookKeys.push(x.olid);
+
+        if(!result["OLID:" + x.olid].details.hasOwnProperty("title"))
+        {
+          sessionStorage.setItem(x.olid + "title", "missing");
+          console.log("Missing Title of " + x.olid);
+        }else
+        {
+          sessionStorage.setItem(x.olid + "title", result["OLID:" + x.olid].details.title);
+        }
+
+        if(!result["OLID:" + x.olid].details.hasOwnProperty("authors"))
+        {
+          sessionStorage.setItem(x.olid + "authors", "missing");
+          console.log("Missing Name of Author of " + x.olid);
+        }else
+        {
+          sessionStorage.setItem(x.olid + "authors", result["OLID:" + x.olid].details.authors[0].name);
+          console.log("I HAVE AN AUTHOR: " + x.olid);
+        }
+
+        if(!result["OLID:" + x.olid].details.hasOwnProperty("publish_date"))
+        {
+          sessionStorage.setItem(x.olid + "date", "missing");
+          console.log("Missing Publish Date of " + x.olid);
+        }else
+        {
+          sessionStorage.setItem(x.olid + "date", result["OLID:" + x.olid].details.publish_date);
+        }
+
+        if(!result["OLID:" + x.olid].details.hasOwnProperty("number_of_pages"))
+        {
+          if(!result["OLID:" + x.olid].details.hasOwnProperty("pagination"))
+          {
+            sessionStorage.setItem(x.olid + "pages", "missing");
+            console.log("Missing Number of Pages of " + x.olid);
+          }else
+          {
+            sessionStorage.setItem(x.olid + "pages", parseInt(result["OLID:" + x.olid].details.pagination));
+          }
+        }else
+        {
+          sessionStorage.setItem(x.olid + "pages", result["OLID:" + x.olid].details.number_of_pages);
+        }
+
         //console.log(result); //for debugging
         //console.log(x); //for debugging
       },
@@ -66,6 +119,24 @@ booksID.forEach(function(x)
   }
 }
 ); //this could've been done better, but it works so ¯\_(ツ)_/¯
+}
+
+if(sessionStorage.getItem(booksID[0].olid + "title") == null)
+{
+  getData();
+}else
+{ 
+  booksID.forEach(x => 
+    {
+      books.push(
+        {"details": 
+        {"title": sessionStorage.getItem(x.olid + "title"),
+        "authors": [{"name": sessionStorage.getItem(x.olid + "authors")}],
+        "publish_date": sessionStorage.getItem(x.olid + "date"),
+        "number_of_pages": sessionStorage.getItem(x.olid + "pages")}
+      });
+    });
+}
 
 function getImage(olid, size) //Open library doesn't always have the images I need, so I want to use a placeholder image
 {

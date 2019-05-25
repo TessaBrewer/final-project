@@ -114,3 +114,10 @@ left: 0;
         width: 90%;
     }
 }
+
+.nextButton, .backButton, .featuredProductImage,
+.learnMoreFeaturedProduct, .extraProduct, .allProduct, 
+.exPro, .shoppingCartButton, .productsButton, .homeButton
+{
+  cursor: pointer;
+}

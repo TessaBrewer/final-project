@@ -33,7 +33,7 @@
     }
     .selectProductWrapper
     {
-
+        width: 90%;
         grid-template-rows: 50px 500px 500px;
     }
     .selectProductTopLinkWrapper
@@ -45,8 +45,11 @@
     .selectProduct
     {
         grid-row: 2/3;
+        width: 90%;
         display: grid;
-        grid-template-columns: 350px;
+        grid-template-columns: auto 200px;
+        justify-content: start;
+        grid-column-gap: 10px;
     }
     .selectProduct > .selectProductImage
     {
@@ -56,7 +59,9 @@
     {
         grid-column: 2/3;
         display: grid;
-        grid-template-rows: 100px 100px 50px 50px;
+        grid-template-rows: auto auto auto auto;
+        align-content: start;
+        grid-row-gap: 10px;
     }
     .selectProductName
     {

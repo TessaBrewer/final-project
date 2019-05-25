@@ -301,6 +301,13 @@ if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff t
   document.getElementsByClassName("featuredProductName")[0].innerHTML = books[featuredProduct].details.title;
   document.getElementsByClassName("featuredProductDescription")[0].innerHTML = "By " + books[featuredProduct].details.authors[0].name;
   document.getElementsByClassName("featuredProductImage")[0].setAttribute("src", getImage(booksID[featuredProduct].olid, "M"));
+
+  document.getElementsByClassName("featuredProductImage")[0].addEventListener("click", function()
+  {
+    sessionStorage.setItem("passedProductValue", featuredProduct);
+    goToSingleProduct();
+  });
+
   document.getElementsByClassName("learnMoreFeaturedProduct")[0].addEventListener("click", function()
   {
     sessionStorage.setItem("passedProductValue", featuredProduct);

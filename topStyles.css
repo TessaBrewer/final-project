@@ -117,7 +117,7 @@ left: 0;
 
 .nextButton, .backButton, .featuredProductImage,
 .learnMoreFeaturedProduct, .extraProduct, .allProduct, 
-.exPro, .shoppingCartButton, .productsButton, .homeButton
+.exPro, .menuButton, button
 {
   cursor: pointer;
 }

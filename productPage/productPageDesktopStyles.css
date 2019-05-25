@@ -1,0 +1,71 @@
+@media only screen and (min-width: 600px)
+{
+    .allProductsTop
+    {
+        margin: 0 10%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        grid-template-rows: auto auto auto; 
+    }
+    .firstAllProduct
+    {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .secondAllProduct
+    {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .thirdAllProduct
+    {
+        grid-column: 3/4;
+        grid-row: 1/2;
+    }
+    .fourthAllProduct
+    {
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+    .fifthAllProduct
+    {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .sixthAllProduct
+    {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .seventhAllProduct
+    {
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+    .eighthAllProduct
+    {
+        grid-column: 4/5;
+        grid-row: 2/3;
+    }
+    .navMenu
+    {
+        grid-row: 3/4;
+        grid-column-start: 1;
+        grid-column-end: 5;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+    }
+    .backButton
+    {
+        grid-column: 1/2;
+    }
+    .pageNumber
+    {
+        grid-column: 2/3;
+    }
+    .nextButton
+    {
+        grid-column: 3/4
+    }
+}

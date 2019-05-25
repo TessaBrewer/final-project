@@ -4,6 +4,14 @@ var fileName = location.href.split("/").slice(-1); //stores an array with 1 entr
 
 var currentProduct = sessionStorage.getItem("passedProductValue"); //should store the key # for the currently selected product (for use on the single product page)
 
+var myCurrentPage = sessionStorage.getItem("passedCurrentPage");
+
+if(myCurrentPage < 0 || myCurrentPage > 2)
+{
+  myCurrentPage = 0;
+  sessionStorage.setItem("passedCurrentPage", 0);
+}
+
 var booksID =
 [
   {"olid": "OL24326648M", price: "6.00"}, //frankenstein
@@ -160,6 +168,55 @@ function fillSelectProductExtraProducts(x)
   });
 }
 
+function allProductPopulation(className, bookNumber)
+{
+  document.getElementsByClassName(className)[0].innerHTML = 
+  "<img class=\"allProductImage\" src=" + getImage(booksID[bookNumber].olid, "M") + ">" +
+  "<h3 class=\"allProductName\">" + books[bookNumber].details.title + "</h3>" +
+  "<p class=\"allProductPrice\">$" + booksID[bookNumber].price + "</p>";
+}
+
+function fullyPopulateFullProductPage()
+{
+  document.getElementsByClassName("allProduct").forEach(x => {x.innerHTML = null});
+
+  document.getElementsByClassName("pageNumber")[0].innerHTML = 
+  (parseInt(myCurrentPage, 10) + 1) + "/3";
+  
+  if(sessionStorage.getItem("passedCurrentPage") == null)
+  {
+    sessionStorage.setItem("passedCurrentPage", 0);
+    myCurrentPage = 0;
+  }
+
+  if(myCurrentPage > 0)
+  {
+    document.getElementsByClassName("backButton")[0].innerHTML = 
+    "<button><h3><i class=\"fas fa-arrow-left\"></i> Back</h3></button>";
+  }else
+  {
+    document.getElementsByClassName("backButton")[0].innerHTML = null;
+  }
+  
+  if(myCurrentPage < 2)
+  {
+    document.getElementsByClassName("nextButton")[0].innerHTML = 
+    "<button><h3>Next <i class=\"fas fa-arrow-right\"></i></h3></button>";
+  }else
+  {
+    document.getElementsByClassName("nextButton")[0].innerHTML = null;
+  }
+  
+  allProductPopulation("firstAllProduct", (myCurrentPage * 8));
+  allProductPopulation("secondAllProduct", ((myCurrentPage * 8) + 1));
+  allProductPopulation("thirdAllProduct", ((myCurrentPage * 8) + 2));
+  allProductPopulation("fourthAllProduct", ((myCurrentPage * 8) + 3));
+  allProductPopulation("fifthAllProduct", ((myCurrentPage * 8) + 4));
+  allProductPopulation("sixthAllProduct", ((myCurrentPage * 8) + 5));
+  allProductPopulation("seventhAllProduct", ((myCurrentPage * 8) + 6));
+  allProductPopulation("eighthAllProduct", ((myCurrentPage * 8) + 7));
+}
+
 if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff that populates the page)
 {
   console.log("This should only run on the main page");
@@ -177,7 +234,7 @@ if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff t
   fillExampleProduct("secondExampleProduct", 7);
   fillExampleProduct("thirdExampleProduct", 9);
 
-  //sessionStorage.setItem("passedProductValue", 0);
+  sessionStorage.setItem("passedCurrentPage", 0);
 }
 
 if(fileName[0] == "singleProductPage.html") //put singleProduct only code here (stuff that populates the single product page)
@@ -195,4 +252,31 @@ if(fileName[0] == "singleProductPage.html") //put singleProduct only code here (
   fillSelectProductExtraProducts("firstSelectProduct");
   fillSelectProductExtraProducts("secondSelectProduct");
   fillSelectProductExtraProducts("thirdSelectProduct");
+}
+
+if(fileName[0] == "productPage.html") //put allProduct code here (stuff that populates the all products page)
+{
+  console.log("This should only run on the all products page");
+  
+document.getElementsByClassName("backButton")[0].addEventListener("click", function()
+{
+  if(myCurrentPage > 0)
+  {
+    myCurrentPage--;
+    sessionStorage.setItem("passedCurrentPage", myCurrentPage);
+    fullyPopulateFullProductPage();
+  }
+});
+
+document.getElementsByClassName("nextButton")[0].addEventListener("click", function()
+{
+  if(myCurrentPage < 2)
+  {
+    myCurrentPage++;
+    sessionStorage.setItem("passedCurrentPage", myCurrentPage);
+    fullyPopulateFullProductPage();
+  }
+});
+
+fullyPopulateFullProductPage();
 }

@@ -25,18 +25,18 @@ var booksID =
   {"olid": "OL24205740M", price: "12.99"}, //The Dunwich Horror
   {"olid": "OL26341628M", price: "147.99"}, //The World is Blue
   {"olid": "OL26338814M", price: "1.23"}, //Russian book? (I hope its pg D-:)
-  {"olid": "OL9427026M", price: "21.00"}, //Medical Insurance Handbook
+  {"olid": "OL24156531M", price: "21.00"}, //Therese Raquin
   {"olid": "OL17196313M", price: "14.50"}, //Lord of the flies
   {"olid": "OL22976416M", price: "13.00"}, //More Poe :D
   {"olid": "OL21856932M", price: "5.00"}, //Taoist Yoga?
-  {"olid": "OL23213727M", price: "6.00"}, //War and Peace
+  {"olid": "OL7941346M", price: "6.00"}, //Mother
   {"olid": "OL7577028M", price: "9.99"}, //War of the Worlds
   {"olid": "OL24382006M", price: "4.25"}, //1984
   {"olid": "OL17240074M", price: "3.21"}, //brave new world
   {"olid": "OL22064758M", price: "20.02"}, //Writings of Rosa Luxemburg
   {"olid": "OL25083117M", price: "89.25"}, //Communist Manifesto
   {"olid": "OL5541887M", price: "6.25"}, //Das Kapital
-  {"olid": "OL5478196M", price: "8.25"}, //American History
+  {"olid": "OL7056801M", price: "8.25"}, //Before Adam
   {"olid": "OL7110112M", price: "3.36"}, //weird satan poem
 
 ]
@@ -178,7 +178,12 @@ function allProductPopulation(className, bookNumber)
 
 function fullyPopulateFullProductPage()
 {
-  document.getElementsByClassName("allProduct").forEach(x => {x.innerHTML = null});
+  var tempArray = document.getElementsByClassName("allProduct");
+
+  for(var i = 0; i < tempArray.length; i++)
+  {
+    tempArray[i].innerHTML = null;
+  }
 
   document.getElementsByClassName("pageNumber")[0].innerHTML = 
   (parseInt(myCurrentPage, 10) + 1) + "/3";

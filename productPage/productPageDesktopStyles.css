@@ -29,6 +29,30 @@
     margin: 0;
 }
 
+.navMenu
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding-bottom: 5px;
+}
+
+.nextButton, .backButton, .pageNumber
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+}
+
+.nextButton, .backButton
+{
+    border: none;
+    background-color: whitesmoke;
+}
+
 @media only screen and (min-width: 600px)
 {
     .allProductsTop
@@ -84,32 +108,6 @@
     .navMenu
     {
         grid-row: 3/4;
-        grid-column-start: 1;
-        grid-column-end: 5;
-        display: grid;
-        grid-template-columns: auto auto;
-        justify-content: space-between;
-    }
-    .backButton
-    {
-        grid-column: 1/2;
-    }
-    .pageNumber
-    {
-        grid-column: 2/3;
-    }
-    .nextButton
-    {
-        grid-column: 3/4
-    }
-
-    .navMenu
-    {
-        display: grid;
-        width: 100%;
-        padding-left: 20%;
-        padding-right: 20%;
-        grid-template-columns: auto auto auto;
-        justify-content: space-between;
+        grid-column: 1/5;
     }
 }

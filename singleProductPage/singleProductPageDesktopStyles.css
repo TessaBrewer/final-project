@@ -1,4 +1,119 @@
+.selectProductDescription
+{
+    font-size: 1.5em;
+}
+
+.selectProductPrice
+{
+    font-size: 1.5em;
+}
+
+.selectProductWrapper
+{
+    background-color: rgb(230, 230, 230);
+}
+
+.selectProductButton
+{
+    color: white;
+    background-color: rgb(72, 149, 217);
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+}
+
 @media only screen and (min-width: 600px)
 {
-
+    body
+    {
+        background-color: red;
+    }
+    .selectProductWrapper
+    {
+        width: 100%;
+        padding: 0 5%;
+        display: grid;
+        grid-template-rows: 50px 500px 500px;
+    }
+    .selectProductTopLinkWrapper
+    {
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+    }
+    .selectProduct
+    {
+        grid-row: 2/3;
+        display: grid;
+        grid-template-columns: 350px;
+    }
+    .selectProduct > .selectProductImage
+    {
+        grid-column: 1/2;
+    }
+    .selectProduct > .selectProductText
+    {
+        grid-column: 2/3;
+        display: grid;
+        grid-template-rows: 100px 100px 50px 50px;
+    }
+    .selectProductName
+    {
+        grid-row: 1/2;
+    }
+    .selectProductDescription
+    {
+        grid-row: 2/3;
+    }
+    .extraSelectProductsPrice
+    {
+        grid-row: 3/4;
+    }
+    .selectProductButton
+    {
+        grid-row: 4/5;
+    }
+    .extraSelectProducts
+    {
+        grid-row: 3/4;
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 50px 350px 25px 25px 50px;
+        justify-content: space-between;
+    }
+    .extraSelectProductsTitle
+    {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    .extraSelectProductsLink
+    {
+        grid-row: 5/6;
+        grid-column: 1/2;
+    }
+    .extraSelectProductsImage
+    {
+        grid-row: 2/3;
+    }
+    .extraSelectProductsName
+    {
+        grid-row: 3/4;
+    }
+    .extraSelectProductsPrice
+    {
+        grid-row: 4/5;
+        align-self: start;
+    }   
+    .firstSelectProduct
+    {
+        grid-column: 1/2;
+    }
+    .secondSelectProduct
+    {
+        grid-column: 2/3;
+    }
+    .thirdSelectProduct
+    {
+        grid-column: 3/4;
+    }
 }

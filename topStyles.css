@@ -21,7 +21,6 @@ body
 .phantomHead
 {
 left: 0;
-height: 5em;
 }
 
 .menu
@@ -47,6 +46,10 @@ height: 5em;
 
 @media only screen and (min-width: 600px) /*desktop styles*/
 {
+    .phantomHead
+    {
+        height: 5em;
+    }
     .head
     {
       grid-template-columns: 340px 275px;
@@ -79,8 +82,12 @@ height: 5em;
     }
 }
 
-@media only screen and(max-width: 600px) /*mobile styles*/
+@media only screen and (max-width: 600px) /*mobile styles*/
 {
+    .phantomHead
+    {
+        height: 5em;
+    }
     .head
     {
         grid-template-rows: 3em 2em;

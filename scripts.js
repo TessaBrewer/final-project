@@ -153,6 +153,11 @@ function fillSelectProductExtraProducts(x)
   "<img class=\"extraSelectProductImage\" src=" + getImage(booksID[randomProductNumber].olid, "M") + ">" +
   "<h3 class=\"extraSelectProductName\">" + books[randomProductNumber].details.title + "</h3>" +
   "<p class=\"extraSelectProductPrice\">$" + booksID[randomProductNumber].price + "</p>";
+  document.getElementsByClassName(x)[0].addEventListener("click", function()
+  {
+    sessionStorage.setItem("passedProductValue", randomProductNumber);
+    goToSingleProduct();
+  });
 }
 
 if(fileName[0] == "mainPage.html") //put mainpage only code here (mostly stuff that populates the page)

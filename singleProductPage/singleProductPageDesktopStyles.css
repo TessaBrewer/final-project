@@ -11,6 +11,9 @@
 .selectProductWrapper
 {
     background-color: rgb(230, 230, 230);
+    width: 100%;
+    padding: 0 5%;
+    display: grid;
 }
 
 .selectProductButton
@@ -30,9 +33,7 @@
     }
     .selectProductWrapper
     {
-        width: 100%;
-        padding: 0 5%;
-        display: grid;
+
         grid-template-rows: 50px 500px 500px;
     }
     .selectProductTopLinkWrapper

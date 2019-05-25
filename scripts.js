@@ -41,11 +41,6 @@ var booksID =
 
 ]
 
-function printMyBooks(myArray) //nice for debugging
-{
-  myArray.forEach(x => console.log(x));
-}
-
 var books = []; //asynchronicity >:(              @TODO: kill async
 
 booksID.forEach(function(x)
@@ -174,6 +169,12 @@ function allProductPopulation(className, bookNumber)
   "<img class=\"allProductImage\" src=" + getImage(booksID[bookNumber].olid, "M") + ">" +
   "<h3 class=\"allProductName\">" + books[bookNumber].details.title + "</h3>" +
   "<p class=\"allProductPrice\">$" + booksID[bookNumber].price + "</p>";
+
+  document.getElementsByClassName(className)[0].addEventListener("click", function()
+  {
+    sessionStorage.setItem("passedProductValue", bookNumber);
+    goToSingleProduct();
+  });
 }
 
 function fullyPopulateFullProductPage()

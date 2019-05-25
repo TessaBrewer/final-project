@@ -269,7 +269,7 @@ function fullyPopulateFullProductPage()
   if(myCurrentPage > 0)
   {
     document.getElementsByClassName("backButton")[0].innerHTML = 
-    "<button><h3><i class=\"fas fa-arrow-left\"></i> Back</h3></button>";
+    "<button class=\"backButton\"><h3><i class=\"fas fa-arrow-left\"></i> Back</h3></button>";
   }else
   {
     document.getElementsByClassName("backButton")[0].innerHTML = null;
@@ -278,7 +278,7 @@ function fullyPopulateFullProductPage()
   if(myCurrentPage < 2)
   {
     document.getElementsByClassName("nextButton")[0].innerHTML = 
-    "<button><h3>Next <i class=\"fas fa-arrow-right\"></i></h3></button>";
+    "<button class=\"nextButton\"><h3>Next <i class=\"fas fa-arrow-right\"></i></h3></button>";
   }else
   {
     document.getElementsByClassName("nextButton")[0].innerHTML = null;

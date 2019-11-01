@@ -121,7 +121,7 @@ left: 0;
 
 .featuredProductImage,
 .learnMoreFeaturedProduct, .extraProduct, .allProduct, 
-.exPro, .menuButton, button
+.exPro, .menuButton, button, .companyName
 {
   cursor: pointer;
 }

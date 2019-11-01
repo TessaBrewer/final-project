@@ -185,6 +185,11 @@ function goToAllProducts()
   window.location.href = "../productPage/productPage.html";
 }
 
+document.getElementsByClassName("companyName")[0].addEventListener("click", function() //listener for the company name
+{
+  goToHomePage();
+});
+
 document.getElementById("homeButton").addEventListener("click", function() //listener for the home button
 {
   goToHomePage();
